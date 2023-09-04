@@ -25,8 +25,9 @@ All coding problems are stored in the `problems.json` file within this repositor
 
 ## How to Run the Benchmark
 
-1. Develop solutions for each problem contained in the `problems.json` file, leveraging your Generative AI system's coding abilities.
+1. Develop solutions for each problem contained in the `problems.json` file, leveraging your Generative AI system's coding abilities. The solution must have a `solve` function that takes in the proper input and returns a single numeric output.
 2. Ensure the solutions are optimized for correctness while adhering to the provided sample input and output explanations for each problem.
+3. To evaluate the correctness of the solution, run the evaluate_program function located in the evaluation.py file. This will report the percentage of total tests passed for that coding program.
 
 ## Evaluation
 

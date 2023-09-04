@@ -1,15 +1,15 @@
 [
   {
-    "input": 5,
-    "output": 7
-  },
-  {
-    "input": 7,
+    "input": 1,
     "output": 5
   },
   {
-    "input": 10,
-    "output": 9
+    "input": 2,
+    "output": 8
+  },
+  {
+    "input": 3,
+    "output": 5
   }
 ]
 
