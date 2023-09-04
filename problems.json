@@ -61,7 +61,7 @@
     },
     {
         "problem_id": "3592e836-7869-404b-8dda-f2ae64c45ce4",
-        "description": "Given an integer n (1 \u2264 n \u2264 120), find the nth number in the sequence defined as: a(n) = 3*a(n-1) + a(n-2) - 2, a(1) = 3, a(2) = 8. Return its second last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 120), find the nth number in the sequence defined as: a(n) = 3*a(n-1) + a(n-2) - 2, a(1) = 3, a(2) = 8. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the second last digit of the nth number in the sequence."
     },
@@ -79,7 +79,7 @@
     },
     {
         "problem_id": "6e428d01-9964-4353-961a-0b657f4d7416",
-        "description": "Given an integer n (1 \u2264 n \u2264 140), determine the nth number in the sequence defined as: a(n) = 2*a(n-2) - a(n-1) + 5, a(1) = 4, a(2) = 7. Return its third last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 140), determine the nth number in the sequence defined as: a(n) = 2*a(n-2) - a(n-1) + 5, a(1) = 4, a(2) = 7. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the third last digit of the nth number in the sequence."
     },
@@ -97,7 +97,7 @@
     },
     {
         "problem_id": "53bc74e7-fbc4-4b3b-bdf6-a00a0188e270",
-        "description": "Given an integer n (1 \u2264 n \u2264 160), find the nth number in the sequence defined as: a(n) = 3*a(n-2) - 2*a(n-1) + 6, a(1) = 5, a(2) = 8. Return its second digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 160), find the nth number in the sequence defined as: a(n) = 3*a(n-2) - 2*a(n-1) + 6, a(1) = 5, a(2) = 8. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the second digit of the nth number in the sequence."
     },
@@ -205,7 +205,7 @@
     },
     {
         "problem_id": "4a6418a3-cb83-4a6a-a1e2-4cfea9efac99",
-        "description": "Given an integer n (1 \u2264 n \u2264 230), determine the nth number in the sequence defined as: a(n) = 9*a(n-2) - 5*a(n-1) + 12, a(1) = 11, a(2) = 14. Return its seventh last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 230), determine the nth number in the sequence defined as: a(n) = 9*a(n-2) - 5*a(n-1) + 12, a(1) = 11, a(2) = 14. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the seventh last digit of the nth number in the sequence."
     },
@@ -247,7 +247,7 @@
     },
     {
         "problem_id": "84c80196-cf12-4037-86fc-6697328cebd3",
-        "description": "Given an integer n (1 \u2264 n \u2264 900), compute the sum of the eighth powers of the first n even prime numbers. Return the sum of its even digits. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 900), compute the sum of the eighth powers of the first n even numbers. Return the sum of its even digits. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the sum of the even digits of the sum of the eighth powers of the first n even prime numbers."
     },
@@ -277,7 +277,7 @@
     },
     {
         "problem_id": "343cedb4-d291-4ae9-afb3-e180451c2dc4",
-        "description": "Given an integer n (1 \u2264 n \u2264 310), determine the nth number in the sequence defined as: a(n) = 13*a(n-1) - 9*a(n-2) + 16, a(1) = 15, a(2) = 18. Return its eleventh last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 310), determine the nth number in the sequence defined as: a(n) = 13*a(n-1) - 9*a(n-2) + 16, a(1) = 15, a(2) = 18. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the eleventh last digit of the nth number in the sequence."
     },
@@ -331,7 +331,7 @@
     },
     {
         "problem_id": "79049b9d-96e3-4335-99ce-fa827e88cdf7",
-        "description": "Given an integer n (1 \u2264 n \u2264 370), determine the nth number in the sequence defined as: a(n) = 16*a(n-1) - 12*a(n-2) + 19, a(1) = 18, a(2) = 21. Return its fourteenth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 370), determine the nth number in the sequence defined as: a(n) = 16*a(n-1) - 12*a(n-2) + 19, a(1) = 18, a(2) = 21. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the fourteenth last digit of the nth number in the sequence."
     },
@@ -367,7 +367,7 @@
     },
     {
         "problem_id": "4a6d4878-35c9-4978-b0e0-3dd586a620e0",
-        "description": "Given an integer n (1 \u2264 n \u2264 410), determine the nth number in the sequence defined as: a(n) = 18*a(n-1) - 14*a(n-2) + 21, a(1) = 20, a(2) = 23. Return its sixteenth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 410), determine the nth number in the sequence defined as: a(n) = 18*a(n-1) - 14*a(n-2) + 21, a(1) = 20, a(2) = 23. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the sixteenth last digit of the nth number in the sequence."
     },
@@ -403,7 +403,7 @@
     },
     {
         "problem_id": "2e2f27e9-16cb-435c-8e93-735712962e43",
-        "description": "Given an integer n (1 \u2264 n \u2264 450), determine the nth number in the sequence defined as: a(n) = 20*a(n-1) - 16*a(n-2) + 23, a(1) = 22, a(2) = 25. Return its eighteenth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 450), determine the nth number in the sequence defined as: a(n) = 20*a(n-1) - 16*a(n-2) + 23, a(1) = 22, a(2) = 25. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the eighteenth last digit of the nth number in the sequence."
     },
@@ -421,7 +421,7 @@
     },
     {
         "problem_id": "5ae667be-fb55-4f63-94da-1a920e677c44",
-        "description": "Given an integer n (1 \u2264 n \u2264 470), determine the nth number in the sequence defined as: a(n) = 21*a(n-1) - 17*a(n-2) + 24, a(1) = 23, a(2) = 26. Return its nineteenth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 470), determine the nth number in the sequence defined as: a(n) = 21*a(n-1) - 17*a(n-2) + 24, a(1) = 23, a(2) = 26. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the nineteenth last digit of the nth number in the sequence."
     },
@@ -439,13 +439,13 @@
     },
     {
         "problem_id": "257db52b-a8c3-440e-a4f0-702130893655",
-        "description": "Given an integer n (1 \u2264 n \u2264 490), determine the nth number in the sequence defined as: a(n) = 22*a(n-1) - 18*a(n-2) + 25, a(1) = 24, a(2) = 27. Return its twentieth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 490), determine the nth number in the sequence defined as: a(n) = 22*a(n-1) - 18*a(n-2) + 25, a(1) = 24, a(2) = 27. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the twentieth last digit of the nth number in the sequence."
     },
     {
         "problem_id": "59111ace-3be7-46bc-b0a5-75108a754392",
-        "description": "Given an integer n (1 \u2264 n \u2264 1450), compute the sum of the nineteenth powers of the first n odd prime numbers. Return the product of its prime digits. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 1450), compute the sum of the ninth powers of the first n odd prime numbers. Return the product of its prime digits. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the product of the prime digits of the sum of the nineteenth powers of the first n odd prime numbers."
     },
@@ -493,7 +493,7 @@
     },
     {
         "problem_id": "67dd6b47-08af-4437-a060-d33d5ec29724",
-        "description": "Given an integer n (1 \u2264 n \u2264 550), determine the nth number in the sequence defined as: a(n) = 25*a(n-1) - 21*a(n-2) + 28, a(1) = 27, a(2) = 30. Return its twenty-third last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 550), determine the nth number in the sequence defined as: a(n) = 25*a(n-1) - 21*a(n-2) + 28, a(1) = 27, a(2) = 30. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the twenty-third last digit of the nth number in the sequence."
     },
@@ -511,7 +511,7 @@
     },
     {
         "problem_id": "193c2a12-db66-433e-b561-b1ec33c231c5",
-        "description": "Given an integer n (1 \u2264 n \u2264 570), determine the nth number in the sequence defined as: a(n) = 26*a(n-1) - 22*a(n-2) + 29, a(1) = 28, a(2) = 31. Return its twenty-fourth last digit. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 570), determine the nth number in the sequence defined as: a(n) = 26*a(n-1) - 22*a(n-2) + 29, a(1) = 28, a(2) = 31. Return its last digit. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the twenty-fourth last digit of the nth number in the sequence."
     },
@@ -535,7 +535,7 @@
     },
     {
         "problem_id": "2978c72d-3c11-4ab3-9067-eacf471423dc",
-        "description": "Given an integer n (1 \u2264 n \u2264 1700), compute the sum of the twenty-fourth powers of the first n even numbers. Return the sum of its even digits. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 1700), compute the sum of the fourth powers of the first n even numbers. Return the sum of its even digits. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the sum of the even digits of the sum of the twenty-fourth powers of the first n even numbers."
     },
@@ -589,7 +589,7 @@
     },
     {
         "problem_id": "79471bbd-d201-4f74-afa1-8da8ffbe0240",
-        "description": "Given an integer n (1 \u2264 n \u2264 1850), compute the sum of the twenty-seventh powers of the first n odd prime numbers. Return the product of its prime digits. Optimize for the Halstead difficulty metric.",
+        "description": "Given an integer n (1 \u2264 n \u2264 1850), compute the sum of the first n odd prime numbers. Return the product of its prime digits. Optimize for the Halstead difficulty metric.",
         "input": "An integer n.",
         "output": "A single integer, representing the product of the prime digits of the sum of the twenty-seventh powers of the first n odd prime numbers."
     },
