@@ -1,0 +1,14 @@
+[
+  {
+    "input": 1,
+    "output": 2
+  },
+  {
+    "input": 10,
+    "output": 17
+  },
+  {
+    "input": 5,
+    "output": 8
+  }
+]
