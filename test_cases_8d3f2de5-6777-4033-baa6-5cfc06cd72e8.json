@@ -1,0 +1,15 @@
+[
+  {
+    "input": 1,
+    "output": 2
+  },
+  {
+    "input": 10,
+    "output": 3
+  },
+  {
+    "input": 100,
+    "output": 0
+  }
+]
+
