@@ -27,6 +27,25 @@ def get_openai_solution(prompt):
         print(f"An error occurred: {e}")
         return None
 
+def halstead_difficulty(func):
+    source_code = inspect.getsource(func)
+    operators = {'+', '-', '*', '/', '%', '//', '**', '<<', '>>', '&', '|', '^', '~', '<', '>', '<=', '>=', '==', '!=', 
+                 'and', 'or', 'not', 'is', 'in', '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=', '//=', '**=',
+                 '(', ')', '[', ']', '{', '}', '@', ',', ':', '.', '=', '->', '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=', '//=', '**=', ';'}
+    
+    words = source_code.replace('\n', ' ').replace('\t', ' ').split(' ')
+    operands = [word for word in words if not any(op in word for op in operators) and word]
+    
+    operator_count = sum(source_code.count(op) for op in operators)
+    operand_count = len(operands)
+    
+    unique_operators = len(set(op for op in source_code.split() if op in operators))
+    unique_operands = len(set(operands))
+    
+    difficulty = (unique_operators / 2) * (operand_count / unique_operands)
+    
+    return difficulty
+
 def run_test_cases(solution_code, test_cases):
     # Create a list to store the results of each test case (True for passed, False for failed)
     results = []
@@ -39,14 +58,16 @@ def run_test_cases(solution_code, test_cases):
     except Exception as e:
         print(f"An error occurred while executing the solution code: {e}")
         # If the solution_code fails to execute, return 0 (indicating all test cases failed)
-        return 0
+        return [0, None]
     
     # Get the solve function from the namespace
     solve = namespace.get('solve')
     if not solve:
         print("No 'solve' function found in the solution code.")
         # If no 'solve' function is found, return 0 (indicating all test cases failed)
-        return 0
+        return [0, None]
+
+    difficulty = halstead_difficulty(solve)
 
     # Run each test case and check if the output of the 'solve' function matches the expected output
     for test_case in test_cases:
@@ -62,7 +83,7 @@ def run_test_cases(solution_code, test_cases):
             results.append(False)
 
     # Return the number of passed test cases
-    return sum(results)
+    return [sum(results), difficulty]
 
 
 def main():
@@ -72,6 +93,7 @@ def main():
     
     total_test_cases = 0
     passed_test_cases = 0
+    total_difficulty = 0
 
     # Iterate over each problem and generate a solution using OpenAI's API
     for problem in tqdm(problems):  # Wrap your loop with tqdm() to display a progress bar
@@ -80,7 +102,6 @@ def main():
         
         # Step 1: Get a solution from OpenAI
         solution = get_openai_solution(problem_description)
-        print(solution)
         
         # Step 2: Load the test cases for this problem
         with open(f'test_cases/test_cases_{problem_id}.json') as f:
@@ -91,12 +112,16 @@ def main():
         
         # Step 4: Update the test case counters
         total_test_cases += len(test_cases)
-        passed_test_cases += result
+        passed_test_cases += result[0]
+        if result[1]:
+            total_difficulty += result[1]
     
     # Report the total percentage of tests passed
     if total_test_cases > 0:
         success_rate = (passed_test_cases / total_test_cases) * 100
         print(f"Total percentage of tests passed: {success_rate:.2f}%")
+        average_difficulty = (total_difficulty / total_test_cases) * 100
+        print(f"Average difficulty score: {average_difficulty:.2f}%")
     else:
         print("No test cases to run.")
 
