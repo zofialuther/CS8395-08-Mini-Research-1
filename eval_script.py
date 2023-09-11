@@ -1,6 +1,7 @@
 import openai
 import json
 import os
+import inspect
 from tqdm import tqdm  # Import the tqdm module
 
 # Replace 'YOUR_OPENAI_API_KEY_HERE' with your actual API key
@@ -27,19 +28,18 @@ def get_openai_solution(prompt):
         print(f"An error occurred: {e}")
         return None
 
-def halstead_difficulty(func):
-    source_code = inspect.getsource(func)
+def halstead_difficulty(code):
     operators = {'+', '-', '*', '/', '%', '//', '**', '<<', '>>', '&', '|', '^', '~', '<', '>', '<=', '>=', '==', '!=', 
                  'and', 'or', 'not', 'is', 'in', '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=', '//=', '**=',
                  '(', ')', '[', ']', '{', '}', '@', ',', ':', '.', '=', '->', '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=', '//=', '**=', ';'}
     
-    words = source_code.replace('\n', ' ').replace('\t', ' ').split(' ')
+    words = code.replace('\n', ' ').replace('\t', ' ').split(' ')
     operands = [word for word in words if not any(op in word for op in operators) and word]
     
-    operator_count = sum(source_code.count(op) for op in operators)
+    operator_count = sum(code.count(op) for op in operators)
     operand_count = len(operands)
     
-    unique_operators = len(set(op for op in source_code.split() if op in operators))
+    unique_operators = len(set(op for op in code.split() if op in operators))
     unique_operands = len(set(operands))
     
     difficulty = (unique_operators / 2) * (operand_count / unique_operands)
@@ -67,7 +67,7 @@ def run_test_cases(solution_code, test_cases):
         # If no 'solve' function is found, return 0 (indicating all test cases failed)
         return [0, None]
 
-    difficulty = halstead_difficulty(solve)
+    difficulty = halstead_difficulty(solution_code)
 
     # Run each test case and check if the output of the 'solve' function matches the expected output
     for test_case in test_cases:
