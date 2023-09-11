@@ -121,7 +121,7 @@ def main():
         success_rate = (passed_test_cases / total_test_cases) * 100
         print(f"Total percentage of tests passed: {success_rate:.2f}%")
         average_difficulty = (total_difficulty / total_test_cases) * 100
-        print(f"Average difficulty score: {average_difficulty:.2f}%")
+        print(f"Average difficulty score: {average_difficulty:.2f}")
     else:
         print("No test cases to run.")
 
