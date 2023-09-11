@@ -4,7 +4,7 @@ import os
 from tqdm import tqdm  # Import the tqdm module
 
 # Replace 'YOUR_OPENAI_API_KEY_HERE' with your actual API key
-openai.api_key = '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'
+openai.api_key = 'YOUR_OPENAI_API_KEY_HERE'
 
 def get_openai_solution(prompt):
     messages=[
