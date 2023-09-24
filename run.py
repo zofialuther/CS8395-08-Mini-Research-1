@@ -86,7 +86,7 @@ def run_test_cases(solution_code, test_cases):
     return [sum(results), difficulty]
 
 
-def main():
+def run_benchmark(model_wrapper):
     # Load the problems from the JSON file
     with open('problems_halstead.json') as f:
         problems = json.load(f)
@@ -101,7 +101,7 @@ def main():
         problem_description = problem['description']
         
         # Step 1: Get a solution from OpenAI
-        solution = get_openai_solution(problem_description)
+        solution = model_wrapper.generate_solution(problem_description)
         
         # Step 2: Load the test cases for this problem
         with open(f'test_cases/test_cases_{problem_id}.json') as f:
@@ -125,5 +125,3 @@ def main():
     else:
         print("No test cases to run.")
 
-if __name__ == "__main__":
-    main()
