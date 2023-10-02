@@ -3,9 +3,14 @@ import json
 import os
 import inspect
 from tqdm import tqdm  # Import the tqdm module
+import sys
+from langchain.prompts import PromptTemplate
+from llm_test_helpers import get_llm, get_args
 
-# Replace 'YOUR_OPENAI_API_KEY_HERE' with your actual API key
-openai.api_key = 'YOUR_OPENAI_API_KEY_HERE'
+
+
+# set environmental variable 'OPENAI_API_KEY_HERE' to your actual API key
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 def get_openai_solution(prompt):
     messages=[
@@ -56,14 +61,14 @@ def run_test_cases(solution_code, test_cases):
         # Dynamically execute the solution_code
         exec(solution_code, namespace)
     except Exception as e:
-        print(f"An error occurred while executing the solution code: {e}")
+        # print(f"An error occurred while executing the solution code: {e}")
         # If the solution_code fails to execute, return 0 (indicating all test cases failed)
         return [0, None]
     
     # Get the solve function from the namespace
     solve = namespace.get('solve')
     if not solve:
-        print("No 'solve' function found in the solution code.")
+        # print("No 'solve' function found in the solution code.")
         # If no 'solve' function is found, return 0 (indicating all test cases failed)
         return [0, None]
 
@@ -79,14 +84,14 @@ def run_test_cases(solution_code, test_cases):
             output = solve(input_data)
             results.append(output == expected_output)
         except Exception as e:
-            print(f"An error occurred while running a test case: {e}")
+            # print(f"An error occurred while running a test case: {e}")
             results.append(False)
 
     # Return the number of passed test cases
     return [sum(results), difficulty]
 
 
-def run_benchmark(model_wrapper):
+def run_benchmark(llm):
     # Load the problems from the JSON file
     with open('problems_halstead.json') as f:
         problems = json.load(f)
@@ -101,7 +106,9 @@ def run_benchmark(model_wrapper):
         problem_description = problem['description']
         
         # Step 1: Get a solution from OpenAI
-        solution = model_wrapper.generate_solution(problem_description)
+        # solution = model_wrapper.generate_solution(problem_description)
+        solution = llm.predict(f"{problem_description} Respond only with your python solution in proper python formatting. Omit all explanations. \
+                                 Omit all descriptions. Don't say \"here is your code\" or similar remarks.")
         
         # Step 2: Load the test cases for this problem
         with open(f'test_cases/test_cases_{problem_id}.json') as f:
@@ -119,9 +126,28 @@ def run_benchmark(model_wrapper):
     # Report the total percentage of tests passed
     if total_test_cases > 0:
         success_rate = (passed_test_cases / total_test_cases) * 100
-        print(f"Total percentage of tests passed: {success_rate:.2f}%")
+        # print(f"Total percentage of tests passed: {success_rate:.2f}%")
         average_difficulty = (total_difficulty / total_test_cases)
-        print(f"Average difficulty score: {average_difficulty:.2f}")
+        # print(f"Average difficulty score: {average_difficulty:.2f}")
     else:
-        print("No test cases to run.")
+        # print("No test cases to run.")
+        average_difficulty = 0
+        success_rate = 0
 
+    data = {
+        'output': success_rate,
+        'halstead_score': average_difficulty
+    }
+    
+    # Write the data to "output.json"
+    with open('output.json', 'w') as json_file:
+        json.dump(data, json_file, indent=4)
+
+def main():
+    args = get_args(sys.argv)
+    llm = get_llm(args.model)
+
+    run_benchmark(llm)
+
+if __name__ == "__main__":
+    main()

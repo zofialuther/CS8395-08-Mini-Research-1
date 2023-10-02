@@ -1,0 +1,6 @@
+{
+    "name": "Halstead-optimization benchmark",
+    "model": "chatgpt-latest",
+    "run_test": "python3 run_tests.py",
+    "tags": ["correctness", "static-analysis", "halstead"]
+}
